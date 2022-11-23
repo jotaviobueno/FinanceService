@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { decode } from "jsonwebtoken";
 
 import storage from "../../../config/storage.js";
 
@@ -10,7 +10,10 @@ export default function decodeJwtToken(token) {
 		if (new Date() > new Date(decoded.exp)) 
 			return false;
 
-		return decoded;
+		if (decoded.data)
+			return decoded.data;
+
+		return false;
 
 	} catch (e) {
 		return false;

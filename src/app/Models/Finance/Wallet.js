@@ -17,23 +17,13 @@ const Wallet = new Schema({
 			description: { type: String }, 
 		}
 	],
-	balance: {
-		fiat: [
-			{
-				brl: Number,
-				usd: Number,
-				eur: Number
-			}
-		],
-		crypto_currency: [
-			{
-				btc: Number,
-				eth: Number,
-				ltc: Number,
-				ada: Number
-			}
-		]
-	}
+	brl: Number,
+	usd: Number,
+	eur: Number,
+	btc: Number,
+	eth: Number,
+	ltc: Number,
+	ada: Number
 });
 
 export default mongoose.model("Wallet", Wallet);
